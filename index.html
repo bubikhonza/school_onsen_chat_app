@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Chat Room</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="client.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+</head>
+<body>
+    <ons-navigator swipeable id="myNavigator" var="myNavigator" page="page0.html"></ons-navigator>
+
+    <!-------------------------------CHAT-------------------------->
+    <template id="register.html">
+        <ons-page id="register">
+            <div style="text-align: center; margin-top: 30px;">
+                <p>
+                <ons-input id="reg_user" modifier="underbar" placeholder="Username" float></ons-input>
+                </p>
+                <p>
+                <ons-input id="reg_pwd" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+                </p>
+                <p style="margin-top: 30px;">
+                <ons-button id="register">Register</ons-button>
+                </p>
+                <p>
+                    Already have account? <span id="login_page" style="color:royalblue;"><b>Login</b></span>
+                </p>
+            </div>
+        </ons-page>
+    </template>
+    <template id ="page0.html">
+        <ons-page id="page0">
+            <div style="text-align: center; margin-top: 30px;">
+                <p>
+                <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
+                </p>
+                <p>
+                <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+                </p>
+                <p style="margin-top: 30px;">
+                <ons-button id="login">Sign in</ons-button>
+                </p>
+                <p>
+                    Dont have account? <span id="register_page" style="color:royalblue;"><b>Register</b></span>
+                </p>
+            </div>
+        </ons-page>
+    </template>
+    <template id="page1.html">
+        <ons-page id="page1">
+        <ons-toolbar>
+            <div class="left toolbar__left" id="profile_name"></div>
+            <div class="center toolbar__center">Contacts</div>
+        </ons-toolbar>
+        </ons-toolbar>
+        <div id="profileList">
+            <ul class="list list--material">
+                <!--DYNAMIC CONTENT-->
+            </ul>     
+            </div>  
+        </ons-page>
+    </template>
+
+    <template id="page2.html">
+        <ons-page id="page2">
+            <ons-toolbar>
+                <div class="left"><ons-back-button id="backbutton">Page 1</ons-back-button></div>
+                <div class="center"></div>
+            </ons-toolbar>
+            <div id="messages">
+            </div>
+            <ons-bottom-toolbar>
+                <ons-row>
+                    <ons-col width="70%"><div style="margin-left:7px; padding-top:5px;"><input id="myMessage" type="text" class="text-input text-input--underbar" placeholder="Your message" value="" style=" width:100%;"></div>
+                    </ons-col>
+                    <ons-col width="30%" style="text-align: center; padding-top:4px; padding-left:10px;">
+                        <ons-button id="sendbutton" style="width:50%;">
+                            <ons-icon icon="md-favorite" id="sendingIcon"></ons-icon>
+                        </ons-button>
+                    </ons-col>
+                </ons-row>
+            </ons-bottom-toolbar>
+        </ons-page>
+    </template>
+</body>
+</html>
